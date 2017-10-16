@@ -1,22 +1,68 @@
 #!/usr/bin/env python
 
 import RPi.GPIO as GPIO, time
+import sys
+import time
+import pygame
+import random
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
-GPIO.setup(11, GPIO.OUT)
-# GPIO.setup(5, GPIO.OUT)
-# GPIO.setup(7, GPIO.OUT)
-# GPIO.setup(8, GPIO.OUT)
+# pin = [11,12,13,15,16,18,22,37]
+pin = [11,12,13]
 
-for num in range(1, 5):
-    GPIO.output(11, GPIO.HIGH)
-    time.sleep(0.05)
-    GPIO.output(11, GPIO.LOW)
-    time.sleep(0.05)
-# time.sleep(2.0)
-# time.sleep(2.0)
+for io in range(len(pin)):
+   GPIO.setup(pin[io], GPIO.OUT)
 
-# GPIO.cleanup()
+with open("seq.txt", 'r') as f:
+  data = f.readlines()
+  for i in range(len(data)):
+    data[i] = data[i].rstrip()
+
+inittime = int(round(time.time()*1000))
+step = 1
+
+pygame.mixer.init()
+
+while True:
+  current = data[step].split(",")
+  curtime = int(round(time.time()*1000)) - inittime
+  stime = int(current[0])
+  spin = int(current[1].lstrip())
+  svalue = int(current[2])
+  
+  print current
+  
+  if stime <= curtime:
+    if spin >= 1 and spin <= 8:
+      if svalue == 1:
+        GPIO.output(pin[spin-1], GPIO.HIGH)
+      else:
+        GPIO.output(pin[spin-1], GPIO.LOW)
+    
+    if spin <= 0:
+      for i in range(len(pin)):
+        GPIO.output(pin[i], GPIO.LOW)
+      break
+    
+    step += 1
+
+# GPIO.output(pin[0], GPIO.HIGH)
+# time.sleep(0.100)
+# GPIO.output(pin[0], GPIO.LOW)
+# time.sleep(0.240)
+#
+# GPIO.output(pin[0], GPIO.HIGH)
+# time.sleep(0.100)
+# GPIO.output(pin[0], GPIO.LOW)
+# time.sleep(0.240)
+#
+# GPIO.output(pin[1], GPIO.HIGH)
+# time.sleep(0.340)
+# GPIO.output(pin[1], GPIO.LOW)
+# GPIO.output(pin[2], GPIO.HIGH)
+# time.sleep(0.340)
+# GPIO.output(pin[2], GPIO.LOW)
+
 
