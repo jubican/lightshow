@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#/usr/bin/env python
 
 import RPi.GPIO as GPIO, time
 import sys
@@ -15,7 +15,7 @@ pin = [11,12,13]
 for io in range(len(pin)):
    GPIO.setup(pin[io], GPIO.OUT)
 
-with open("seq.txt", 'r') as f:
+with open(sys.argv[1], 'r') as f:
   data = f.readlines()
   for i in range(len(data)):
     data[i] = data[i].rstrip()
@@ -24,11 +24,13 @@ inittime = int(round(time.time()*1000))
 step = 1
 
 pygame.mixer.init()
+pygame.mixer.music.load(sys.argv[2])
+pygame.mixer.music.play()
 
 while True:
   current = data[step].split(",")
   curtime = int(round(time.time()*1000)) - inittime
-  stime = int(current[0])
+  stime = int(current[0]) + 550
   spin = int(current[1].lstrip())
   svalue = int(current[2])
   
@@ -47,6 +49,8 @@ while True:
       break
     
     step += 1
+
+pygame.mixer.music.stop()
 
 # GPIO.output(pin[0], GPIO.HIGH)
 # time.sleep(0.100)
