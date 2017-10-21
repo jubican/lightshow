@@ -9,8 +9,7 @@ import random
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
-# pin = [11,12,13,15,16,18,22,37]
-pin = [11,12,13]
+pin = [11,12,13,15,16,18,22,37]
 
 for io in range(len(pin)):
    GPIO.setup(pin[io], GPIO.OUT)
@@ -51,22 +50,4 @@ while True:
     step += 1
 
 pygame.mixer.music.stop()
-
-# GPIO.output(pin[0], GPIO.HIGH)
-# time.sleep(0.100)
-# GPIO.output(pin[0], GPIO.LOW)
-# time.sleep(0.240)
-#
-# GPIO.output(pin[0], GPIO.HIGH)
-# time.sleep(0.100)
-# GPIO.output(pin[0], GPIO.LOW)
-# time.sleep(0.240)
-#
-# GPIO.output(pin[1], GPIO.HIGH)
-# time.sleep(0.340)
-# GPIO.output(pin[1], GPIO.LOW)
-# GPIO.output(pin[2], GPIO.HIGH)
-# time.sleep(0.340)
-# GPIO.output(pin[2], GPIO.LOW)
-
 
