@@ -27,16 +27,19 @@ pygame.mixer.music.load(sys.argv[2])
 pygame.mixer.music.play()
 
 while True:
+  if data[step].startswith("#")
+    step += 1
+    continue
   current = data[step].split(",")
   curtime = int(round(time.time()*1000)) - inittime
   stime = int(current[0]) + 550
   spin = int(current[1].lstrip())
   svalue = int(current[2])
   
-  print current
-  
   if stime <= curtime:
     if spin >= 1 and spin <= 8:
+      print current
+      
       if svalue == 1:
         GPIO.output(pin[spin-1], GPIO.HIGH)
       else:
