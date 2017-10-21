@@ -27,7 +27,7 @@ pygame.mixer.music.load(sys.argv[2])
 pygame.mixer.music.play()
 
 while True:
-  if data[step].startswith("#")
+  if data[step].startswith("#"):
     step += 1
     continue
   current = data[step].split(",")
