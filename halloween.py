@@ -23,7 +23,8 @@ inittime = int(round(time.time()*1000))
 step = 1
 
 main_section = "primary_section"
-sections = [main_section]
+sections = []
+sections.append(main_section)
 currlist = sections.index(main_section)
 seqlist = []
 proclist = []
