@@ -23,7 +23,8 @@ inittime = int(round(time.time()*1000))
 step = 1
 
 main_section = "primary_section"
-currlist = main_section
+sections = [main_section]
+currlist = sections.index(main_section)
 seqlist = []
 proclist = []
 
@@ -39,16 +40,19 @@ while True:
     continue
   elif line.startswith("routine_start"):
     r_temp = line.split()
-    seqlist[r_temp[1]] = []
-    currlist = t_temp[1]
+    sections.append(r_temp[1])
+    currlist = sections.index(r_temp[1])
+    seqlist[currlist] = []
   elif line.startswith("routine_end"):
-    currlist = main_section
+    currlist = sections.index(main_section)
   elif "," in line:
     current = line.split(",")
-    if current[0] == "routine" and seqlist[current[1]]:
+    if current[0] == "routine" and sections.index(current[1]):
       num = int(current[2])
-      for itm in seqlist[current[1]]:
-        seqlist[main_section].append([num+itm[0], itm[1], itm[2]])
+      secitm = sections.index(current[1])
+      secmain = sections.index(main_section)
+      for itm in seqlist[secitm]:
+        seqlist[secmain].append([num+itm[0], itm[1], itm[2]])
     else:
       num = int(current[0])
       lit = int(current[1])
