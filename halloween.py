@@ -46,9 +46,9 @@ while True:
     seqlist[currlist] = []
   elif line.startswith("routine_end"):
     currlist = sections.index(main_section)
-    print currlist
+    print "end:" + currlist
   elif "," in line:
-    print currlist
+    print "line:" + currlist
     current = line.split(",")
     if current[0] == "routine" and sections.index(current[1]):
       num = int(current[2])
