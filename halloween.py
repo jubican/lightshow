@@ -29,6 +29,7 @@ currlist = sections.index(main_section)
 seqlist = []
 proclist = []
 
+print "begin: " + str(currlist)
 # pygame.mixer.init()
 # pygame.mixer.music.load(sys.argv[2])
 # pygame.mixer.music.play()
