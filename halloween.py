@@ -53,7 +53,7 @@ while True:
       num = int(current[0])
       lit = int(current[1])
       cmd = int(current[2])
-      seqlist[currlist].append([num, lit, cmd]])
+      seqlist[currlist].append([num, lit, cmd])
     
     #curtime = int(round(time.time()*1000)) - inittime
     #stime = int(current[0]) + 550
