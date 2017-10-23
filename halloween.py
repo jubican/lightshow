@@ -73,7 +73,7 @@ while step < last:
   item = seqlist[0][step]
   curtime = int(round(time.time()*1000)) - inittime
   stime = int(item[0]) + 550
-  spin = int(item[1].lstrip())
+  spin = int(item[1])
   svalue = int(item[2])
   
   if stime <= curtime:
