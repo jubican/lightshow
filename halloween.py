@@ -69,6 +69,7 @@ pygame.mixer.music.play()
 
 step = 0
 last = len(seqlist[0])
+
 while step < last:
   item = seqlist[0][step]
   curtime = int(round(time.time()*1000)) - inittime
@@ -81,8 +82,8 @@ while step < last:
       GPIO.output(pin[spin-1], GPIO.HIGH)
     else:
       GPIO.output(pin[spin-1], GPIO.LOW)
-  print(i)
-  step += 1
+    print(i)
+    step += 1
 
 for io in range(len(pin)):
   GPIO.output(pin[spin-1], GPIO.LOW)
