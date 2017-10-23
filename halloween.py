@@ -63,6 +63,8 @@ while True:
     
   step += 1
 
+sorted(seqlist[0])
+
 pygame.mixer.init()
 pygame.mixer.music.load(sys.argv[2])
 pygame.mixer.music.play()
