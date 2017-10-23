@@ -23,12 +23,12 @@ routine_end
 000560,      1, 0
 000560,      3, 1
 000680,      3, 0
-routine,    bass1, 000410
+routine,    bass1, 000680
 004770,      1, 1
 004900,      1, 0
 004900,      3, 1
 005050,      3, 0
-routine,    bass1, 004770
+routine,    bass1, 005050
 routine,    bass1, 009410
 routine,    bass1, 013780
 routine,    bass1, 018150
