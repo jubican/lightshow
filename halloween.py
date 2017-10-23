@@ -82,7 +82,7 @@ while step < last:
       GPIO.output(pin[spin-1], GPIO.HIGH)
     else:
       GPIO.output(pin[spin-1], GPIO.LOW)
-    print(i)
+    print(item)
     step += 1
 
 for io in range(len(pin)):
