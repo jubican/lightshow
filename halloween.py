@@ -70,10 +70,11 @@ pygame.mixer.music.play()
 step = 0
 last = len(seqlist[0])
 while step < last:
+  item = seqlist[0][step]
   curtime = int(round(time.time()*1000)) - inittime
-  stime = int(i[0]) + 550
-  spin = int(i[1].lstrip())
-  svalue = int(i[2])
+  stime = int(item[0]) + 550
+  spin = int(item[1].lstrip())
+  svalue = int(item[2])
   
   if stime <= curtime:
     if svalue == 1:
